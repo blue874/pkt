@@ -1,0 +1,1 @@
+/space0/fancy/project/PKT/slurm/ft.sh //执行命令。
