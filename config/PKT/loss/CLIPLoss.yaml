@@ -1,0 +1,6 @@
+# config/loss/CLIPLoss.yaml
+name: ClipLoss
+local_loss: False
+gather_with_grad: False
+cache_labels: True
+use_horovod: False

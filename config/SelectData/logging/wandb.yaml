@@ -1,0 +1,5 @@
+log_sys: wandb
+project: PKT
+name: ${exp_name}/$(loss.name)/${optimizer.weight_decay}
+mode: offline
+dir: ${log_dir}

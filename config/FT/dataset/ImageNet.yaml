@@ -1,0 +1,7 @@
+# config/dataset/imagenet.yaml
+name: ImageNet
+csv_file: datasets/csv/imagenet.csv
+csv_img_key: filepath
+csv_separator: \t
+supervised_label_key: null
+csv_caption_key: title

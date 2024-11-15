@@ -1,0 +1,40 @@
+# config/config.yaml
+hydra:
+  run:
+    dir: .
+  output_subdir: ${log_dir}/hydra
+
+defaults:
+  - model: model_teacher
+  - dataset: top1-probability-per-class-VIT-B32
+  - optimizer: adamw
+  - loss: DISTLoss
+  - scheduler: cosine
+  - logging: wandb
+  - _self_
+
+exp_name: DIST
+#save_root: outputs/${exp_name}/${loss.dist_type}_${loss.loss_type}/${loss.dist_alpha}/${dataset.name}/BS${batch_size}_Epoch${epochs}_WD${optimizer.weight_decay}_LR${optimizer.learn_rate}/seed${seed}
+save_root: outputs/${exp_name}/${loss.dist_type}_${loss.loss_type}/${loss.dist_alpha}/${loss.dist_tau}/${dataset.name}/BS${batch_size}_Epoch${epochs}_WD${optimizer.weight_decay}_LR${optimizer.learn_rate}/seed${seed} 
+ckpt_dir: ${save_root}/checkpoints
+
+ckpt_dir_t: outputs/FLYP/ViT-B/32/BS512_Epoch10_WD0.1_LR1e-05/seed0/checkpoints #teacher model path
+#ckpt_dir_s: outputs/PKT/ViT-B/16/top1-probability-per-class-VIT-B32/BS256_Epoch2_WD0.2_LR5e-06/seed0/checkpoints #student model path
+log_dir: ${save_root}/logs
+
+seed: 0
+epochs: 2
+batch_size: 64     # batch size for all gpu, per gpu batch size is batch_size / world_size
+batch_size_per_gpu: null
+workers: 16
+data_location: ./datasets/data
+#data_location: ~/data
+eval_batch_size: 1024   # batch size for per gpu
+eval_datasets:
+  - ImageNet
+  - ImageNetR
+  - ImageNetA
+  - ImageNetSketch
+  #- ImageNetV2
+ori_cwd: null
+world_size: null

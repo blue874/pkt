@@ -1,0 +1,14 @@
+# config/loss/DISTLoss.yaml
+name: DistLoss
+local_loss: False
+gather_with_grad: False
+cache_labels: True
+use_horovod: False
+dist_type : div_soft
+dist_tau: 20 #温度参数
+dist_alpha: 0.3 #蒸馏损失所占比例
+loss_type : flyp #基本损失函数类型
+
+
+#soft_flyp 简单logits对齐+flyp损失
+#div_soft VIT32(训练后)/VIT32(训练前)*VIT16(训练前)->VIT16(预测)，KL(VIT16,VIT16(预测))

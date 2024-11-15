@@ -1,0 +1,7 @@
+# config/dataset/few-imagenet.yaml
+name: top1-1shot-imagenet
+csv_file: datasets/csv/select_data/caption/caption_top1_probability_per_class_VIT_B32.csv
+csv_img_key: filepath
+csv_separator: \t
+supervised_label_key: label
+csv_caption_key: title

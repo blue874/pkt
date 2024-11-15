@@ -1,0 +1,7 @@
+# config/dataset/few-imagenet.yaml
+name: random-seed0-1shot-imagenet
+csv_file: datasets/csv/select_data/caption/caption_random_seed0_1shot_per_class.csv
+csv_img_key: filepath
+csv_separator: \t
+supervised_label_key: label
+csv_caption_key: title

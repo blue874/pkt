@@ -1,0 +1,3 @@
+# config/optimizer/adamw.yaml
+learn_rate: 5e-6
+weight_decay: 0.2

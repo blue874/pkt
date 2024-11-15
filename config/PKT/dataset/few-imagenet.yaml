@@ -1,0 +1,7 @@
+# config/dataset/few-imagenet.yaml
+name: few-imagenet
+csv_file: datasets/csv/few_imagenet_label.csv
+csv_img_key: filepath
+csv_separator: \t
+supervised_label_key: label
+csv_caption_key: title

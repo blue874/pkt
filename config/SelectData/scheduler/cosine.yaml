@@ -1,0 +1,4 @@
+# config/FT/scheduler/cosine.yaml
+warmup_length: 0
+base_lrs: ${optimizer.learn_rate}
+min_lr: 0.0

@@ -1,0 +1,5 @@
+# config/model/model_teacher.yaml
+backbone: ViT-B/32 # ViT-L-14, ViT-B-16
+template: openai_imagenet_template
+device: cuda
+cache_dir: null

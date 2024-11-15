@@ -1,0 +1,36 @@
+# config/config.yaml
+hydra:
+  run:
+    dir: .
+  output_subdir: ${log_dir}/hydra
+
+defaults:
+  - model: CLIP
+  - dataset: top1-probability-per-class-VIT-B32
+  - optimizer: adamw
+  - loss: CLIPLoss
+  - scheduler: cosine
+  - logging: wandb
+  - _self_
+
+exp_name: PKT
+save_root: outputs/${exp_name}/${model.backbone}/${dataset.name}/BS${batch_size}_Epoch${epochs}_WD${optimizer.weight_decay}_LR${optimizer.learn_rate}/seed${seed} 
+ckpt_dir: ${save_root}/checkpoints
+log_dir: ${save_root}/logs
+
+seed: 0
+epochs: 2
+batch_size: 256     # batch size for all gpu, per gpu batch size is batch_size / world_size
+batch_size_per_gpu: null
+workers: 16
+data_location: datasets/data
+#data_location: ~/data
+eval_batch_size: 1024   # batch size for per gpu
+eval_datasets:
+  - ImageNet
+  - ImageNetR
+  - ImageNetA
+  - ImageNetSketch
+  #- ImageNetV2
+ori_cwd: null
+world_size: null
